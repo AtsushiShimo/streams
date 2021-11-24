@@ -647,7 +647,9 @@ class ConvertEncodingFilter extends \php_user_filter
                 $from_encoding = \mb_detect_encoding($data, static::$detectOrder, true);
 
                 if ($from_encoding === false) {
-                    throw new \Exception(\sprintf('文字エンコーディング検出に失敗しました。対象:%s', $data));
+                  // エンコーディング検出が出来なかったときはUTF-8とみなす
+                    $from_encoding = 'UTF-8';
+                    // throw new \Exception(\sprintf('文字エンコーディング検出に失敗しました。対象:%s', $data));
                 }
 
                 $is_from_encoding_sjis  = \in_array($from_encoding, static::CONSIDER_SHIFT_JIS_ENCODING_NAMES, true);
