@@ -114,7 +114,7 @@ class ConvertLinefeedFilter extends \php_user_filter
      * @return  bool    instance生成に成功した場合はtrue、そうでなければfalse (falseを返した場合、フィルタの登録が失敗したものと見なされる)
      * @see \php_user_filter::onCreate()
      */
-    public function onCreate()
+    public function onCreate(): bool
     {
         //==============================================
         // フィルタ名フォーマット確認
