@@ -181,7 +181,7 @@ class ConvertLinefeedFilter extends \php_user_filter
      *     PSFS_ERR_FATAL (デフォルト)   ：フィルタで対処不能なエラーが発生し、処理を続行できない
      * @see \php_user_filter::filter()
      */
-    public function filter($in, $out, &$consumed, $closing)
+    public function filter($in, $out, &$consumed, $closing): int
     {
         //==============================================
         // 主処理
